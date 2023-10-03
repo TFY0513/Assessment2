@@ -1,0 +1,77 @@
+﻿@{
+    ViewData["Title"] = "File";
+}
+
+@* 
+<form id="uploadForm" method="post" enctype="multipart/form-data" onsubmit="uploadFile(event)">
+    <div style="justify-content:center;">
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Upload txt file</label>
+            <input class="form-control" type="file" name="file" id="formFile" accept=".txt">
+        </div>
+        <button id="btnSubmit" type="submit" class="btn btn-primary">Upload</button>
+    </div>
+</form>
+ *@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File Upload Example</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+
+    <form id="uploadForm" method="post" enctype="multipart/form-data" onsubmit="uploadFile(event)">
+        <div style="justify-content:center;">
+            <div class="mb-3">
+                <label for="formFile" class="form-label">Upload txt file</label>
+                <input class="form-control" type="file" name="file" id="formFile" accept=".txt">
+            </div>
+            <button id="btnSubmit" type="submit" class="btn btn-primary">Upload</button>
+        </div>
+    </form>
+
+    <!-- Display table content here -->
+    <div id="tableContainer">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Column Header</th>
+                    <!-- Add more columns as needed -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <!-- Display more columns based on the content -->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        function uploadFile(event) {
+            event.preventDefault();
+
+            var formData = new FormData($('#uploadForm')[0]);
+
+            $.ajax({
+                url: '/File/UploadFile', // Replace with your actual controller and action
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    $('#tableContainer').html(data);
+                },
+                error: function (error) {
+                    console.error('Error uploading file:', error);
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>

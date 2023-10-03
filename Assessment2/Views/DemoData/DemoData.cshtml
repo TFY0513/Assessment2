@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Demo Data";
+}
+
+@model EmployeeModel
+
+
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    
+    <div id="tableContainer">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Employee Name</th>
+                    <th>Designatio</th>
+                    <th>Age</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var employee in Model.Employees)
+                {
+                    <tr>
+                       
+                        <td>@employee.Name</td>
+                        <td>@employee.Departments.Designation</td>
+                          <td>@employee.Age</td>
+                      
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

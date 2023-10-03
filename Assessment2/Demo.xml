@@ -1,0 +1,10 @@
+<Configurations>
+  <DatabaseList>
+    <Database>
+      <Name>Demo</Name>
+      <ConnectionString>Data Source=LAPTOP-LG2BU0O7\SQLEXPRESS; Initial Catalog=Demo; Integrated Security=true; Connect Timeout=30000</ConnectionString>
+    </Database>
+  </DatabaseList>
+</Configurations>
+
+
